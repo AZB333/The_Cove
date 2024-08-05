@@ -1,0 +1,84 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background: linear-gradient(grey 40%, dimgrey 100%);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+main {
+    width: 100%;
+    max-width: 100vw;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    border: 5px solid purple;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    background: linear-gradient(yellow 20%, rgb(100, 132, 206) 100%);
+    padding: 20px;
+    width: 70vw;
+    max-width: 100%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.radio-group {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.radio-group label {
+    display: inline-flex;
+    align-items: center;
+}
+
+.radio-input {
+    margin-right: 5px;
+}
+
+
+h2.title, p.description {
+    margin: 10px 0;
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.survey-label {
+    color: pink;
+    text-align: left; /* Align labels text to the left */
+    width: 100%;
+}
+
+input, select {
+    color: black;
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#post-survey-body {
+    width: 100%;
+}
+
+#no-div{
+    border: 5px solid red;
+}

@@ -1,0 +1,85 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background: linear-gradient(grey 40%, dimgrey 100%);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    overflow-y:auto;
+}
+
+#create-field {
+    border: 5px solid purple;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(green 50%, red 100%);
+    padding: 20px;
+    width: 70vw;
+    max-width: 90vw; /* Ensure it doesn't exceed viewport width */
+    height: auto;
+    min-height: 30vh;
+}
+
+.survey-label {
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: left;
+    padding: 0 5%;
+}
+
+.survey-input {
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 100%;
+}
+
+#create-submit {
+    width: 50%;
+}
+
+.header {
+    color: red;
+    margin: 5px;
+}
+
+.description {
+    color: brown;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    #create-field {
+        width: 90vw;
+    }
+
+    .survey-input,
+    #create-submit {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    #create-field {
+        width: 95vw;
+    }
+
+    .survey-input,
+    #create-submit {
+        width: 90%;
+    }
+}

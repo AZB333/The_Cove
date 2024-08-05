@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background: linear-gradient(grey 40%, dimgrey 100%);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    overflow-y:auto;
+}
+
+#login-field {
+    padding: 20px;
+    max-width: 90vw; /* Ensure it doesn't exceed viewport width */
+}
+
+.survey-label {
+    margin-bottom: 5px;
+    width: 100%;
+    text-align: left;
+    padding: 0 5%;
+}
+
+.survey-input {
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 100%;
+}
+
+#login-submit {
+    width: 50%;
+}
+#header{
+    margin-bottom: 15px;
+}
+
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    #login-field {
+        width: 90vw;
+    }
+
+    .survey-input,
+    #login-submit {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    #login-field {
+        width: 95vw;
+    }
+
+    .survey-input,
+    #login-submit {
+        width: 90%;
+    }
+}
