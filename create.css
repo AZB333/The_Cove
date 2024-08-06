@@ -6,10 +6,59 @@
   padding: 0;
 }
 
+
+nav.nav-bar {
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,.6) 100%);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for separation */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between; /* Space between span and links */
+    align-items: center; 
+}
+
+nav.nav-bar .left {
+    display: flex;
+    align-items: center; 
+    margin-left: 15px;
+}
+
+nav.nav-bar .right {
+    display: flex;
+    gap: 15px;
+    margin-right: 15px;
+}
+
+nav.nav-bar a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size for readability */
+}
+
+nav.nav-bar a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+nav.nav-bar span {
+    color: white;
+    font-size: 16px;
+}
+
+
+
 body {
-    background: linear-gradient(grey 40%, dimgrey 100%);
-    height: 100vh;
+    background-image: url('https://live.cdn.renderosity.com/gallery/items/1330775/images/681411/6ed3e2fb3e009d5db1d4756023122b0a_original.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Pirata One', cursive;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -18,48 +67,74 @@ body {
     overflow-y:auto;
 }
 
-#create-field {
-    border: 5px solid purple;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(green 50%, red 100%);
-    padding: 20px;
-    width: 70vw;
+#create-form {
+    padding-top: 30px;
+    padding-bottom: 80px;
     max-width: 90vw; /* Ensure it doesn't exceed viewport width */
-    height: auto;
-    min-height: 30vh;
 }
 
 .survey-label {
     margin-bottom: 5px;
     width: 100%;
     text-align: left;
-    padding: 0 5%;
+    padding: 0 10%;
 }
 
 .survey-input {
     margin-bottom: 20px;
     width: 90%;
     max-width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
+}
+
+.survey-form{
+    background: url("https://media.istockphoto.com/id/155277575/photo/grunge-background.jpg?s=612x612&w=0&k=20&c=PHQ9PQ8hWN4NLsBH7i0HchQXuc5tRHjYBNsdDiEFmFQ=");
+    padding: 5px;
+    border: 0.5px solid black;
+    color: #1c1a13;
+    font-size: 20px;
 }
 
 #create-submit {
     width: 50%;
 }
-
-.header {
-    color: red;
-    margin: 5px;
+#header{
+    margin-bottom: 15px;
+    color: black;
 }
 
-.description {
-    color: brown;
-    margin-top: 10px;
-    margin-bottom: 10px;
+div.wood-border {
+    border: 10px solid transparent; /* Adjust border width */
+    border-image: url('https://www.textures.com/system/gallery/photos/Wood/Tree%20Bark/Palm/61560/BarkPalm0018_1_350.jpg') 30 round; /* Adjust path and size */
+    padding: 0px; /* Adjust based on content */
+    margin-top: 75px;
+    margin-bottom: 35px;
 }
+
+/* Base styling for the pirate-themed submit button */
+.submit-btn {
+    background-color: #8B4513;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    padding: 5px 15px; 
+    font-size: 15px; 
+    font-family: 'Pirata One', cursive; 
+    text-transform: uppercase; 
+    cursor: pointer;
+    border-radius: 8px; 
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+    margin-top: 20px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #FFD700; /* Gold background on hover */
+    color: #8B4513; /* Dark brown text on hover */
+  }
+  
+
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {

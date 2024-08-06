@@ -6,38 +6,112 @@
   padding: 0;
 }
 
+nav.nav-bar {
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,.6) 100%);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+nav.nav-bar .left {
+    display: flex;
+    align-items: center; 
+    margin-left: 15px;
+}
+
+nav.nav-bar .right {
+    display: flex;
+    gap: 15px;
+    margin-right: 15px;
+}
+
+nav.nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+nav.nav-bar span {
+    color: white;
+    font-size: 16px;
+}
+
 body {
-    background: linear-gradient(grey 40%, dimgrey 100%);
+    background-image: url('https://live.cdn.renderosity.com/gallery/items/1330775/images/681411/6ed3e2fb3e009d5db1d4756023122b0a_original.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Pirata One', cursive;
     display: flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
-    justify-content: center; /* Center content vertically */
-    min-height: 100vh;
+    justify-content: center;
     overflow-y: auto;
 }
 
-main {
-    width: 100%;
-    max-width: 100vw;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.title {
+    margin-bottom: 15px;
+    color: black;
+    font-size: 24px; /* Adjust font size as needed */
 }
 
-form {
-    border: 5px solid purple;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    background: linear-gradient(yellow 20%, rgb(100, 132, 206) 100%);
-    padding: 20px;
-    width: 70vw;
+
+.description {
+    margin: 5px 0;
+    font-size: 18px; /* Adjust font size as needed */
+}
+
+.form-div {
+    text-align: left; /* Align text to the left */
+    margin-bottom: 20px; /* Add some space between form sections */
+}
+
+.survey-label {
+    margin-bottom: 5px;
+}
+
+.survey-input {
+    margin-bottom: 10px;
+    width: 50%; 
     max-width: 100%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.survey-form {
+    background: url("https://media.istockphoto.com/id/155277575/photo/grunge-background.jpg?s=612x612&w=0&k=20&c=PHQ9PQ8hWN4NLsBH7i0HchQXuc5tRHjYBNsdDiEFmFQ=");
+    padding: 5px;
+    border: 0.5px solid black;
+    color: #1c1a13;
+    font-size: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 90vw;
+    text-align: center; 
+}
+
+#survey-submit {
+    width: 50%;
+}
+
+#header {
+    margin-bottom: 15px;
+    color: black;
 }
 
 .radio-group {
@@ -47,7 +121,7 @@ form {
 
 .radio-group label {
     display: inline-flex;
-    align-items: center;
+    align-items: center; /* Ensure radio buttons align with text */
 }
 
 .radio-input {
@@ -55,30 +129,52 @@ form {
 }
 
 
-h2.title, p.description {
-    margin: 10px 0;
-    color: white;
-    text-align: center;
-    width: 100%;
+div.wood-border {
+    border: 10px solid transparent;
+    border-image: url('https://www.textures.com/system/gallery/photos/Wood/Tree%20Bark/Palm/61560/BarkPalm0018_1_350.jpg') 30 round;
+    padding: 0px;
+    margin-top: 75px;
+    margin-bottom: 35px;
 }
 
-.survey-label {
-    color: pink;
-    text-align: left; /* Align labels text to the left */
-    width: 100%;
+.submit-btn {
+    background-color: #8B4513;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    padding: 5px 15px;
+    font-size: 15px;
+    font-family: 'Pirata One', cursive;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
 }
 
-input, select {
-    color: black;
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
+.submit-btn:hover {
+    background-color: #FFD700;
+    color: #8B4513;
 }
 
-#post-survey-body {
-    width: 100%;
+@media (max-width: 768px) {
+    #survey-field {
+        width: 90vw;
+    }
+
+    .survey-input,
+    #survey-submit {
+        width: 80%;
+    }
 }
 
-#no-div{
-    border: 5px solid red;
+@media (max-width: 480px) {
+    #survey-field {
+        width: 95vw;
+    }
+
+    .survey-input,
+    #survey-submit {
+        width: 90%;
+    }
 }

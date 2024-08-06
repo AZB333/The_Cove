@@ -1,29 +1,67 @@
 <!DOCTYPE HTML>
 <head>
     <meta charset="utf-8">
-    <title>Create Account</title>
+    <title>Create an Account</title>
     <link rel="stylesheet" href="./create.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
 </head>
 
-<body id="create-account-body">
-    <h2 class="header">Create an account with The Cove</h2>
-    <p class="description">All information entered is private, do not share your password with ANYONE</p>
-    <div class="create-form">
-    <field id="create-field">
-            <label class="survey-label" id="name-label" for="name">Name</label>
-            <input id="name" type="text" class="survey-input" placeholder="John Minecraft" required>
-            <label class="survey-label" id="number-label" for="number">Number</label>
-            <input id="number" type="number" class="survey-input" >
-            <label class="survey-label" id="dob-label" for="dob">Birthday</label>
-            <input id="dob" type="date" class="survey-input" >
-            <label class="survey-label" id="create-username-label" for="create-username">Username </label>
-            <input id="create-username" type="text" class="survey-input" >
-            <label class="survey-label" id="create-password-label" for="create-password">Password</label>
-            <input id="create-password" type="password" class="survey-input" >
-        <button type="submit" id="create-submit">Submit</button>
-    </field>
+<body id="create-body">
+    <nav class="nav-bar">
+        <span class="left">The Cove</span>
+        <div class="right">
+            <a href="home.html">Home</a>
+            <a href="create.html">Create an Account</a>
+            <a href="login.html">Login</a>
+            <a href="survey.html">Take the Survey</a>
+        </div>
+    </nav>
+    <div class="wood-border">
+        <div class="survey-form">
+            <h2 class="header">Create an account with The Cove</h2>
+            <p class="description">All information entered is private, do not share your password with ANYONE</p>
+            <form id="create-form" action="javascript:void(0);" method="POST">
+                <div class="form-div" id="name-div">
+                    <label class="survey-label" id="name-label" for="name">Name</label>
+                    <input id="name" type="text" class="survey-input" required>
+                </div>
+                <div class="form-div" id="number-div">
+                    <label class="survey-label" id="number-label" for="number">Phone Number</label>
+                    <input id="number" type="number" class="survey-input" >
+                </div>
+                <div class="form-div" id="dob-div">
+                    <label class="survey-label" id="dob-label" for="dob">Birthday</label>
+                    <input id="dob" type="date" class="survey-input" >
+                </div>
+                <div class="form-div" id="create-username-div">
+                    <label class="survey-label" id="create-username-label" for="create-username">Username </label>
+                    <input id="create-username" type="text" class="survey-input" >
+                </div>
+                <div class="form-div" id="create-password-div">
+                    <label class="survey-label" id="create-password-label" for="create-password">Password</label>
+                    <input id="create-password" type="password" class="survey-input" >
+                </div>
+                <button class="submit-btn" type="submit" id="create-submit">Submit</button>
+            </form>
+        </div>
     </div>
     <script src="./create.js"></script>
 </body>
+
+<!-- <form id="create-form" action="javascript:void(0);" method="POST">
+    <label class="survey-label" id="name-label" for="name">Name</label>
+    <input id="name" type="text" class="survey-input" placeholder="John Minecraft" required>
+    <label class="survey-label" id="number-label" for="number">Number</label>
+    <input id="number" type="number" class="survey-input" >
+    <label class="survey-label" id="dob-label" for="dob">Birthday</label>
+    <input id="dob" type="date" class="survey-input" >
+    <label class="survey-label" id="create-username-label" for="create-username">Username </label>
+    <input id="create-username" type="text" class="survey-input" >
+    <label class="survey-label" id="create-password-label" for="create-password">Password</label>
+    <input id="create-password" type="password" class="survey-input" >
+    <button type="submit" id="create-submit">Submit</button>
+</form> -->
