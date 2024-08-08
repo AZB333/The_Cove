@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="public.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-bar">
+        <span class="left">The Cove</span>
+        <div class="right">
+            <a href="home.html">Home</a>
+            <a href="calendar.html">Event Calendar</a>
+            <a href="create.html">Create an Account</a>
+            <a href="login.html">Login</a>
+            <a href="survey.html">Take the Survey</a>
+        </div>
+    </nav>
+    <div class="calendar-container">
+        <div class="current-date">
+            <h2 id="today-date"></h2>
+        </div>
+        <div class="description">
+            <p>Click on an event for more information</p>
+        </div>
+        <div class="calendar-header">
+            <button id="prev-month">Previous</button>
+            <h2 id="month-year"></h2>
+            <button id="next-month">Next</button>
+        </div>
+        <table class="calendar">
+            <thead>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+            </thead>
+            <tbody id="calendar-body">
+                <!-- Calendar days will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+        <div class="reset-btn">
+            <button id="reset-btn">Reset</button>
+        </div>
+        <div id="test" class="hidden">Testing toggle hide</div>
+    </div>
+    <script src="calendar.js"></script>
+</body>
+</html>

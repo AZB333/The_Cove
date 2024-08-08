@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+    -webkit-font-smoothing: antialiased;
+}
+
+nav.nav-bar {
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,.6) 100%);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for separation */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between; /* Space between span and links */
+    align-items: center; 
+}
+
+nav.nav-bar .left {
+    display: flex;
+    align-items: center; 
+    margin-left: 15px;
+}
+
+nav.nav-bar .right {
+    display: flex;
+    gap: 15px;
+    margin-right: 15px;
+}
+
+nav.nav-bar a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size for readability */
+}
+
+nav.nav-bar a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+nav.nav-bar span {
+    color: white;
+    font-size: 16px;
+}

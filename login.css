@@ -111,7 +111,6 @@ div.wood-border {
     padding: 0px; /* Adjust based on content */
 }
 
-/* Base styling for the pirate-themed submit button */
 .submit-btn {
     background-color: #8B4513;
     color: #FFD700;
@@ -122,19 +121,16 @@ div.wood-border {
     text-transform: uppercase; 
     cursor: pointer;
     border-radius: 8px; 
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition on hover */
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s, color 0.3s;
     margin-top: 20px;
   }
   
   .submit-btn:hover {
-    background-color: #FFD700; /* Gold background on hover */
-    color: #8B4513; /* Dark brown text on hover */
+    background-color: #FFD700; 
+    color: #8B4513; 
   }
   
-
-
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
     #login-field {
         width: 90vw;
