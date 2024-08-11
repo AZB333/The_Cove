@@ -81,7 +81,7 @@ body {
 }
 
 .calendar td {
-    background-color: #f4a460;
+    background-color: #f4a560;
     width: calc(100% / 7); 
     height: 80px;
     vertical-align: top;
@@ -141,4 +141,8 @@ body {
 .reset-btn button:hover{
     background-color: #FFD700; 
     color: #8B4513; 
+}
+
+#test{
+    color: white;
 }
