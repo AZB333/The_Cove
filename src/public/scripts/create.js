@@ -20,7 +20,7 @@ document.getElementById("create-form").addEventListener("submit", async (e) => {
       return;
     }
 
-    alert("Account created!");
+    // alert("Account created!");
     window.location.href = "/"; // redirect to home page
   } catch (err) {
     console.error(err);

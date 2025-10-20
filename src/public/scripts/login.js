@@ -18,7 +18,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
     }
 
     const data = await res.json();
-    alert(data.message); // "Login successful"
+    // alert(data.message); // "Login successful"
     window.location.href = "/"; // redirect to home page
   } catch (err) {
     console.error(err);
