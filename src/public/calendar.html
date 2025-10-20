@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cove Calendar</title>
+  <link rel="stylesheet" href="./styles/main.css" />
     <link rel="stylesheet" href="calendar.css">
     <link rel="stylesheet" href="./styles/calendar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,17 +12,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="nav-bar">
-        <span class="left">The Cove</span>
-        <div class="right">
-            <a href="/">Home</a>
-            <a href="/calendar">Event Calendar</a>
-            <a href="/create">Create an Account</a>
-            <a href="/login">Login</a>
-            <a href="/survey">Take the Survey</a>
-            <a href="/about">About Us</a>
-        </div>
-    </nav>
+  <nav class="nav-bar">
+    <span class="left">The Cove</span>
+
+    <div class="nav" id="nav">
+      <a href="/">Home</a>
+      <a href="/calendar">Event Calendar</a>
+      <a href="/create">Create an Account</a>
+      <a href="/login">Login</a>
+      <a href="/survey">Take the Survey</a>
+      <a href="/about">About Us</a>
+    </div>
+  </nav>
     <div class="calendar-container">
         <div class="current-date">
             <h2 id="today-date"></h2>
@@ -55,6 +57,8 @@
         </div>
         <div id="test" class="hidden">Testing toggle hide</div>
     </div>
+  <script src="./scripts/main.js"></script>
+
     <script src="./scripts/calendar.js"></script>
 </body>
 </html>

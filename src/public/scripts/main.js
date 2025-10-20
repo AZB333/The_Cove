@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const navRight = document.getElementById("nav-links");
+  const nav = document.getElementById("nav");
 
   try {
     const res = await fetch("/auth/status");
     const data = await res.json();
 
-    navRight.innerHTML = ''; // clear old links
+    nav.innerHTML = ''; // clear old links
 
     if (data.loggedIn) {
       // Show when user is logged in
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const welcome = `<span class="welcome">Welcome, ${data.username}!</span>`;
       const logout = `<a href="#" id="logout-btn">Logout</a>`;
 
-      navRight.innerHTML = `${home}${calendar}${survey}${about}${welcome}${logout}`;
+      nav.innerHTML = `${home}${calendar}${survey}${about}${welcome}${logout}`;
 
       // Logout logic
       document.getElementById("logout-btn").addEventListener("click", async (e) => {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     } else {
       // Show default nav if logged out
-      navRight.innerHTML = `
+      nav.innerHTML = `
         <a href="/">Home</a>
         <a href="/calendar">Event Calendar</a>
         <a href="/create">Create an Account</a>
