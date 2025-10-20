@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const nav = document.getElementById("nav");
+  const navLeft = document.getElementById("nav-left");
 
   try {
     const res = await fetch("/auth/status");
@@ -13,10 +14,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       const calendar = `<a href="/calendar">Event Calendar</a>`;
       const survey = `<a href="/survey">Take the Survey</a>`;
       const about = `<a href="/about">About Us</a>`;
-      const welcome = `<span class="welcome">Welcome, ${data.username}!</span>`;
+      const welcome = `<span class="left">Welcome, ${data.username}!</span>`;
       const logout = `<a href="#" id="logout-btn">Logout</a>`;
 
-      nav.innerHTML = `${home}${calendar}${survey}${about}${welcome}${logout}`;
+      nav.innerHTML = `${home}${calendar}${survey}${about}${logout}`;
+      navLeft.innerHTML = `The Cove ${welcome}`;
 
       // Logout logic
       document.getElementById("logout-btn").addEventListener("click", async (e) => {
@@ -28,9 +30,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Show default nav if logged out
       nav.innerHTML = `
         <a href="/">Home</a>
-        <a href="/calendar">Event Calendar</a>
         <a href="/create">Create an Account</a>
         <a href="/login">Login</a>
+        <a href="/calendar">Event Calendar</a>
         <a href="/survey">Take the Survey</a>
         <a href="/about">About Us</a>
       `;
