@@ -1,21 +1,26 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Post Event Survey</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <title>Post Event Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="./styles/survey.css" />
+  <link rel="stylesheet" href="./styles/main.css" />
+  <link rel="stylesheet" href="public.css" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet" />
 </head>
 
 <body id="post-survey-body">
   <nav class="nav-bar">
-    <span class="left" id="nav-left">The Cove</span>
-
-    <div class="nav" id="nav">
+    <span class="left">The Cove</span>
+    <div class="right">
       <a href="/">Home</a>
       <a href="/calendar">Event Calendar</a>
       <a href="/create">Create an Account</a>
@@ -25,74 +30,79 @@
     </div>
   </nav>
 
-    <div class="wood-border">
-        <div class="survey-form">
-            <h2 class="title">Thank you for visiting The Cove!</h2>
-            <p class="description">We truly hoped you enjoyed your stay, and if you did we would apprecaite if you left us a review.</p>
-            <form id="post-survey-form" action="javascript:void(0);" method="POST">
-                <div class="form-div" id="enjoy-div">
-                    <p class="survey-label">1. Overall, how enjoyable was the event you attended?</p>
-                    <div class="radio-group">
-                        <label>
-                            <input class="radio-input" value="1" type="radio" id="rate-1" name="rating" required>
-                            1
-                        </label>
-                        <label>
-                            <input class="radio-input" value="2" type="radio" id="rate-2" name="rating" required>
-                            2
-                        </label>
-                        <label>
-                            <input class="radio-input" value="3" type="radio" id="rate-3" name="rating" required>
-                            3
-                        </label>
-                        <label>
-                            <input class="radio-input" value="4" type="radio" id="rate-4" name="rating" required>
-                            4
-                        </label>
-                        <label>
-                            <input class="radio-input" value="5" type="radio" id="rate-5" name="rating" checked required>
-                            5
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="form-div" id="safe-div">
-                    <p class="survey-label">2. Did you feel safe?</p>
-                    <select id="dropdown" name="safe">
-                        <option value = "" selected>Choose an option</option>
-                        <option value="yes" >Yes</option>
-                        <option value="no" >No</option>
-                    </select>
-                    <div id="no-option">  
-                    </div>
-                    </select>
-                </div>
-                
-                <div class="form-div" id="music-div">
-                    <label class="survey-label" id="music-label" for="music">3. How was the music at the event you attended?
-                        <input name="music" id="music" type="text" class="survey-input" placeholder="Awesome sauce" required>
-                    </label>
-                </div>
+  <div class="wood-border">
+    <div class="survey-form">
+      <h2 class="title">Thank you for visiting The Cove!</h2>
+      <p class="description">
+        We truly hope you enjoyed your stay! If you did, we’d appreciate it if you left us a review.
+      </p>
 
-                <div class="form-div" id="ceiling-div">
-                    <p class="survey-label">4. Did you hit your head on the ceiling?</p>
-                    <select id="dropdown" name="ceiling">
-                        <option value = "" selected>Choose an option</option>
-                        <option value="yes" >Yes</option>
-                        <option value="no">No</option>
-                    </select>
-                </div>
-
-                <div class="form-div" id="feedback-div">
-                    <p class="survey-label">5. What would you like to see more or less of at future events?</p>
-                    <!-- group these -->
-                        <label class="survey-label" for="more" id="more-label" >More: </label> <input id="more" type="text" name="more" placeholder="optional">
-                        <label class="survey-label" for="less" id="less-label" >Less: </label> <input id="less" type="text" name="less" placeholder="optional">
-                    </div>
-                <button class="submit-btn" type="submit" id="survey-submit">Submit</button>
-            </form>
+      <form id="post-survey-form" action="javascript:void(0);" method="POST">
+        
+        <!-- Question 1 -->
+        <div class="form-div" id="enjoy-div">
+          <p class="survey-label">1. Overall, how enjoyable was the event you attended?</p>
+          <div class="radio-group">
+            <label><input class="radio-input" type="radio" name="rating" value="1" required /> 1</label>
+            <label><input class="radio-input" type="radio" name="rating" value="2" required /> 2</label>
+            <label><input class="radio-input" type="radio" name="rating" value="3" required /> 3</label>
+            <label><input class="radio-input" type="radio" name="rating" value="4" required /> 4</label>
+            <label><input class="radio-input" type="radio" name="rating" value="5" checked required /> 5</label>
+          </div>
         </div>
+
+        <!-- Question 2 -->
+        <div class="form-div" id="safe-div">
+          <p class="survey-label">2. Did you feel safe?</p>
+          <select id="safe-dropdown" name="safe" required>
+            <option value="" selected>Choose an option</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <div id="no-option"></div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="form-div" id="music-div">
+          <label class="survey-label" for="music">
+            3. How was the music at the event you attended?
+          </label>
+          <input
+            name="music"
+            id="music"
+            type="text"
+            class="survey-input"
+            placeholder="Awesome sauce"
+            required
+          />
+        </div>
+
+        <!-- Question 4 -->
+        <div class="form-div" id="ceiling-div">
+          <p class="survey-label">4. Did you hit your head on the ceiling?</p>
+          <select id="ceiling-dropdown" name="ceiling" required>
+            <option value="" selected>Choose an option</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="form-div" id="feedback-div">
+          <p class="survey-label">5. What would you like to see more or less of at future events?</p>
+          <label for="more" class="survey-label">More:</label>
+          <input id="more" type="text" name="more" class="survey-input" placeholder="Optional" />
+          <br>
+          <label for="less" class="survey-label">Less:</label>
+          <input id="less" type="text" name="less" class="survey-input" placeholder="Optional" />
+        </div>
+
+        <button class="submit-btn" type="submit" id="survey-submit">Submit</button>
+      </form>
     </div>
-    <script src="./scripts/main.js"></script>
-    <script src="./scripts/survey.js"></script>
+  </div>
+
+  <script src="./scripts/main.js"></script>
+  <script src="./scripts/survey.js"></script>
 </body>
+</html>
