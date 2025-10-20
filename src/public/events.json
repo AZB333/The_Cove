@@ -1,0 +1,93 @@
+[
+    {
+    "month": 0,
+    "day": 1,
+    "title": "New Year's Day",
+    "description": "A happy New Year to all ye scallywags!"
+    },
+    {
+    "month": 0,
+    "day": 15,
+    "title": "Martin Luther King Jr. Day",
+    "description": "A day to celebrate a great buccaneer!"
+    },
+    {
+    "month": 1,
+    "day": 14,
+    "title": "Valentine's Day",
+    "description": "If ye be single, you can ask yer parrot!"
+    },
+    {
+    "month": 2,
+    "day": 17,
+    "title": "St. Patrick's Day",
+    "description": "Wear green or be prepared to walk the plank!"
+    },
+    {
+    "month": 4,
+    "day": 5,
+    "title": "Cinco de Mayo",
+    "description": "Yo ho ho and a bottle of tequila!"
+    },
+    {
+    "month": 5,
+    "day": 19,
+    "title": "Juneteenth",
+    "description": "Celebrate freedom across the seas!"
+    },
+    {
+    "month": 6,
+    "day": 4,
+    "title": "Independence Day",
+    "description": "Fireworks on the high seas!"
+    },
+    {
+    "month": 8,
+    "day": 2,
+    "title": "Labor Day",
+    "description": "Take a break from scrubbin’ the deck!"
+    },
+    {
+    "month": 8,
+    "day": 19,
+    "title": "Talk Like a Pirate Day",
+    "description": "Arr matey! A fine day for speakin' like a pirate!"
+    },
+    {
+    "month": 9,
+    "day": 24,
+    "year": 2025,      
+    "title": "Abby's Bday Party",
+    "description": "Celebrate a BODACIOUS BOOTY RAAHHHHHH!"
+    },
+    {
+    "month": 9,
+    "day": 31,
+    "title": "Halloween",
+    "description": "Dress up as something fun, like a mermaid!"
+    },
+    {
+    "month": 10,
+    "day": 2,
+    "title": "Día de los Muertos",
+    "description": "Remember those resting in Davy Jones's Locker."
+    },
+    {
+    "month": 10,
+    "day": 28,
+    "title": "Thanksgiving",
+    "description": "A feast fit for pirates and landlubbers alike!"
+    },
+    {
+    "month": 11,
+    "day": 25,
+    "title": "Christmas",
+    "description": "Ho Ho Ho! Merry Christmas!"
+    },
+    {
+    "month": 11,
+    "day": 31,
+    "title": "New Year's Eve",
+    "description": "Celebrate with a toast to the open seas!"
+    }
+]

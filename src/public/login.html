@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<head>
+    <meta charset="utf-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+</head>
+
+<body id="login-body">
+    <nav class="nav-bar">
+        <span class="left">The Cove</span>
+        <div class="right">
+            <a href="/">Home</a>
+            <a href="/calendar">Event Calendar</a>
+            <a href="/create">Create an Account</a>
+            <a href="/login">Login</a>
+            <a href="/survey">Take the Survey</a>
+            <a href="/about">About Us</a>
+        </div>
+    </nav>
+    <div class="wood-border">
+        <div class="survey-form">
+            <h2 id="header">Login to your account</h2>
+            <form id="login-form" action="javascript:void(0);" method="POST">
+                <div class="form-div" id="login-username-div">
+                    <label class="survey-label" id="login-username-label" for="login-username">Username </label>
+                    <input id="login-username" type="text" class="survey-input" >
+                </div>
+                <div class="form-div" id="login-password-div">
+                    <label class="survey-label" id="login-password-label" for="login-password">Password</label>
+                    <input id="login-password" type="password" class="survey-input" >
+                </div>
+                <button class="submit-btn" type="submit" id="login-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <p id="error"></p>
+    <script src="./scripts/login.js"></script>
+</body>
