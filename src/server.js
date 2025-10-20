@@ -120,7 +120,7 @@ app.get('/auth/status', (req, res) => {
 
 ////////////posts/////////////
 app.post("/create", async (req, res) => {
-  const { username, email, password } = req.body;
+  const { name, email, birthday, username, password } = req.body;
   try {
     const existing = await pool.query("SELECT * FROM users WHERE username = $1", [username]);
     if (existing.rows.length > 0) {
@@ -131,8 +131,8 @@ app.post("/create", async (req, res) => {
     // const hash = await bcrypt.hash(password, 10);
 
     await pool.query(
-      "INSERT INTO users (username, email, password_hash) VALUES ($1, $2, $3)",
-      [username, email, password]
+      "INSERT INTO users (name, email, birthday, username, password_hash) VALUES ($1, $2, $3, $4, $5)",
+      [name, email, birthday, username, password]
     );
 
     res.status(201).send("Account created successfully");
