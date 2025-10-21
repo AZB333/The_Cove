@@ -31,7 +31,7 @@ if (!fs.existsSync(uploadDir)) {
 
 // const upload = multer({ storage });
 
-// import session from "express-session";
+import session from "express-session";
 
 import { v2 as cloudinary } from 'cloudinary';
 import { CloudinaryStorage } from 'multer-storage-cloudinary';
