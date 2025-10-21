@@ -48,16 +48,23 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
-// connect to PostgreSQL
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASS,
-  port: process.env.DB_PORT,
-  ssl: { rejectUnauthorized: false } 
-});
+// // connect to PostgreSQL
+// const pool = new Pool({
+//   connectionString: process.env.DATABASE_URL,
+//   user: process.env.DB_USER,
+//   host: process.env.DB_HOST,
+//   database: process.env.DB_NAME,
+//   password: process.env.DB_PASS,
+//   port: process.env.DB_PORT,
+//   ssl: { rejectUnauthorized: false } 
+// });
+   const pool = new Pool({
+     host: process.env.DB_HOST,
+     port: process.env.DB_PORT,
+     database: process.env.DB_NAME,
+     user: process.env.DB_USER,
+     password: process.env.DB_PASSWORD,
+   });
 
 //user credentials session
 app.use(
