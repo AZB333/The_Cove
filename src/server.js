@@ -33,8 +33,8 @@ if (!fs.existsSync(uploadDir)) {
 
 // import session from "express-session";
 
-// import { v2 as cloudinary } from 'cloudinary';
-// import { CloudinaryStorage } from 'multer-storage-cloudinary';
+import { v2 as cloudinary } from 'cloudinary';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';
 
 // Configure Cloudinary
 cloudinary.config({
