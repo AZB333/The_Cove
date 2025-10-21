@@ -20,18 +20,39 @@ const uploadDir = path.join(__dirname, "uploads");
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
+//multer
+// const storage = multer.diskStorage({
+//   destination: (req, file, cb) => cb(null, uploadDir),
+//   filename: (req, file, cb) => {
+//     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+//     cb(null, uniqueSuffix + "-" + file.originalname);
+//   },
+// });
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, uploadDir),
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uniqueSuffix + "-" + file.originalname);
+// const upload = multer({ storage });
+
+// import session from "express-session";
+
+// import { v2 as cloudinary } from 'cloudinary';
+// import { CloudinaryStorage } from 'multer-storage-cloudinary';
+
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
+// Replace your multer storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'thecove-uploads',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'gif', 'webp'],
   },
 });
 
 const upload = multer({ storage });
-
-import session from "express-session";
 
 
 
@@ -291,32 +312,48 @@ app.post('/submit-survey', async (req, res) => {
 
 
 //uploads
+// app.post("/upload", upload.array("photos", 10), async (req, res) => {
+//   const username = req.session.user ? req.session.user.username : "Anonymous";
+
+//   try {
+//     const client = await pool.connect();
+
+//     for (const file of req.files) {
+//       const { filename, originalname, path: filepath } = file;
+
+//       await client.query(
+//         `INSERT INTO photos (username, filename, originalname, filepath)
+//          VALUES ($1, $2, $3, $4)`,
+//         [username, filename, originalname, filepath]
+//       );
+//     }
+
+//     client.release();
+//     res.redirect("/photos");
+
+
+//   } catch (err) {
+//     console.error("Error saving to DB:", err);
+//     res.status(500).send("Upload failed");
+//   }
+// });
 app.post("/upload", upload.array("photos", 10), async (req, res) => {
   const username = req.session.user ? req.session.user.username : "Anonymous";
 
   try {
-    const client = await pool.connect();
-
     for (const file of req.files) {
-      const { filename, originalname, path: filepath } = file;
-
-      await client.query(
+      await pool.query(
         `INSERT INTO photos (username, filename, originalname, filepath)
          VALUES ($1, $2, $3, $4)`,
-        [username, filename, originalname, filepath]
+        [username, file.filename, file.originalname, file.path] // file.path is now the Cloudinary URL
       );
     }
-
-    client.release();
     res.redirect("/photos");
-
-
   } catch (err) {
     console.error("Error saving to DB:", err);
     res.status(500).send("Upload failed");
   }
 });
-
 
 
 const PORT = process.env.PORT || 3000;
