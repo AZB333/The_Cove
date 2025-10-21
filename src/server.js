@@ -56,6 +56,7 @@ const pool = new Pool({
   database: process.env.DB_NAME,
   password: process.env.DB_PASS,
   port: process.env.DB_PORT,
+  ssl: { rejectUnauthorized: false } 
 });
 
 //user credentials session
@@ -65,7 +66,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: false, // set true if using HTTPS
+      secure: true, // set true if using HTTPS
       httpOnly: true, // helps prevent XSS
       maxAge: 1000 * 60 * 60, // 1 hour
     },
