@@ -1,6 +1,29 @@
 document.addEventListener("DOMContentLoaded", async () => {
-  const nav = document.getElementById("nav");
-  const navLeft = document.getElementById("nav-left");
+   const nav = document.getElementById("nav");
+      const navLeft = document.getElementById("nav-left");
+      const hamburger = document.getElementById("hamburger");
+
+      // Hamburger menu toggle
+      hamburger.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        hamburger.classList.toggle("active");
+      });
+
+      // Close menu when clicking a link
+      nav.addEventListener("click", (e) => {
+        if (e.target.tagName === "A") {
+          nav.classList.remove("active");
+          hamburger.classList.remove("active");
+        }
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+          nav.classList.remove("active");
+          hamburger.classList.remove("active");
+        }
+      });
 
   try {
     const res = await fetch("/auth/status");
