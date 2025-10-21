@@ -18,7 +18,7 @@ async function loadPhotos() {
         imgContainer.className = "photo-card";
 
         const img = document.createElement("img");
-        img.src = `/uploads/${photo.filename}`;
+        img.src = `${photo.filepath}`;
         img.alt = photo.originalname;
         img.loading = "lazy";
 

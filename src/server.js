@@ -66,7 +66,7 @@ app.use(express.json()); // allows JSON body parsing
 app.use(express.static(path.join(__dirname, "public")));
 
 //uploads
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+// app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 
 // // connect to PostgreSQL
