@@ -1,81 +1,187 @@
-body {
-  background-image: url('https://live.cdn.renderosity.com/gallery/items/1330775/images/681411/6ed3e2fb3e009d5db1d4756023122b0a_original.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
-  font-family: 'Pirata One', cursive;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  padding-top: 80px; /* space for nav */
-  padding-bottom: 40px;
-}
-
-div.wood-border {
-  border: 10px solid transparent;
-  border-image: url('https://www.textures.com/system/gallery/photos/Wood/Tree%20Bark/Palm/61560/BarkPalm0018_1_350.jpg') 30 round;
-  padding: 20px;
-  margin-top: 20px;
-  margin-bottom: 35px;
-  width: 90%;
-  max-width: 600px;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.survey-form {
-  background: url("https://media.istockphoto.com/id/155277575/photo/grunge-background.jpg?s=612x612&w=0&k=20&c=PHQ9PQ8hWN4NLsBH7i0HchQXuc5tRHjYBNsdDiEFmFQ=");
-  background-size: cover;
-  padding: 30px 20px;
-  border: 1px solid black;
-  color: #1c1a13;
-  font-size: 20px;
-  width: 100%;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+nav.nav-bar {
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,.6) 100%);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+nav.nav-bar .left {
+    display: flex;
+    align-items: center; 
+    margin-left: 15px;
+}
+
+nav.nav-bar .right {
+    display: flex;
+    gap: 15px;
+    margin-right: 15px;
+}
+
+nav.nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+nav.nav-bar a:hover {
+    text-decoration: underline;
+}
+
+nav.nav-bar span {
+    color: white;
+    font-size: 16px;
+}
+
+body {
+    background-image: url('https://live.cdn.renderosity.com/gallery/items/1330775/images/681411/6ed3e2fb3e009d5db1d4756023122b0a_original.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Pirata One', cursive;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+.title {
+    margin-bottom: 15px;
+    color: black !important;
+    font-size: 24px; /* Adjust font size as needed */
+}
+
+
+.description {
+    margin: 5px 0;
+    font-size: 18px; /* Adjust font size as needed */
+    color: black !important;
+}
+
+.form-div {
+    text-align: left; /* Align text to the left */
+    margin-bottom: 15px; /* Add some space between form sections */
+}
+
+.survey-label {
+    margin-bottom: 5px;
 }
 
 .survey-input {
-  width: 90%;
-  max-width: 400px;
-  padding: 5px;
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+    width: 50%; 
+    max-width: 100%;
+    padding: 5px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.survey-form {
+    background: url("https://media.istockphoto.com/id/155277575/photo/grunge-background.jpg?s=612x612&w=0&k=20&c=PHQ9PQ8hWN4NLsBH7i0HchQXuc5tRHjYBNsdDiEFmFQ=");
+    padding: 5px;
+    border: 0.5px solid black;
+    color: #1c1a13;
+    font-size: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    max-width: 90vw;
+    min-width: 50vw;
+    max-height: 85vh;
+    text-align: center; 
+}
+
+#survey-submit {
+    width: 50%;
+}
+
+#header {
+    margin-bottom: 15px;
+    color: black;
+}
+
+.radio-group {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.radio-group label {
+    display: inline-flex;
+    align-items: center; /* Ensure radio buttons align with text */
+}
+
+.radio-input {
+    margin-right: 5px;
+}
+
+
+div.wood-border {
+    border: 10px solid transparent;
+    border-image: url('https://www.textures.com/system/gallery/photos/Wood/Tree%20Bark/Palm/61560/BarkPalm0018_1_350.jpg') 30 round;
+    padding: 0px;
+    margin-top: 75px;
+    margin-bottom: 35px;
+}
+
+#less{
+    margin-bottom: 0px;
 }
 
 .submit-btn {
-  width: 70%;
-  max-width: 300px;
-  padding: 8px;
+    background-color: #8B4513;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    padding: 5px 15px;
+    font-size: 15px;
+    font-family: 'Pirata One', cursive;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, color 0.3s;
+    /* margin-top: 20px; */
 }
 
-/* Responsive tweaks */
-@media (max-width: 768px) {
-  .survey-form {
-    padding: 20px 10px;
-    font-size: 18px;
-  }
+.submit-btn:hover {
+    background-color: #FFD700;
+    color: #8B4513;
+}
 
-  div.wood-border {
-    width: 95%;
-  }
+@media (max-width: 768px) {
+    #survey-field {
+        width: 90vw;
+    }
+
+    .survey-input,
+    #survey-submit {
+        width: 80%;
+    }
 }
 
 @media (max-width: 480px) {
-  body {
-    padding-top: 90px;
-  }
+    #survey-field {
+        width: 95vw;
+    }
 
-  div.wood-border {
-    padding: 15px;
-  }
-
-  .survey-input {
-    width: 95%;
-  }
-
-  .submit-btn {
-    width: 85%;
-  }
+    .survey-input,
+    #survey-submit {
+        width: 90%;
+    }
 }

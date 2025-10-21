@@ -1,101 +1,221 @@
 body {
-  font-family: 'Pirata One', cursive;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: url('https://live.cdn.renderosity.com/gallery/items/1330775/images/681411/6ed3e2fb3e009d5db1d4756023122b0a_original.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0 10px; /* padding for mobile sides */
+    font-family: 'Pirata One', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://live.cdn.renderosity.com/gallery/items/1330775/images/681411/6ed3e2fb3e009d5db1d4756023122b0a_original.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.current-date{
+    display: flex;
+    justify-content: center;
 }
 
 .calendar-container {
-  width: 100%;
-  max-width: 1000px;
-  margin: 80px auto 20px;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+    min-width: 90vw;
+    margin: 20px;
+    padding: 20px;
 }
 
 .calendar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-  gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .calendar-header button {
-  background-color: #8B4513;
-  color: #FFD700;
-  border: 2px solid #FFD700;
-  cursor: pointer;
-  border-radius: 8px;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s, color 0.3s;
-  padding: 8px 12px;
-  font-size: 16px;
+    background-color: #8B4513;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    text-transform: uppercase; 
+    cursor: pointer;
+    border-radius: 8px; 
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-family: 'Pirata One', cursive;
+}
+
+.calendar-header button:hover{
+    background-color: #FFD700; 
+    color: #8B4513; 
+}
+
+.calendar-header h2 {
+    margin: 0;
+    /* color: #2e8b57; */
 }
 
 .calendar {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
+    min-height: 60vh;
+}
+
+.calendar td.today{
+    background-color: #ff7f50;
+}
+.calendar td.today:hover{
+    background-color: #ec7348;
 }
 
 .calendar th,
 .calendar td {
-  border: 1px solid #ddd;
-  text-align: center;
-  padding: 12px;
-  min-width: 40px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
 }
 
-.reset-btn {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
+.calendar th {
+    background-color: #29aee8;
 }
 
-/* Mobile responsive layout */
-@media (max-width: 768px) {
-  .calendar-container {
+.calendar td {
+    background-color: #f4a560;
+    width: calc(100% / 7); 
+    height: 80px;
+    vertical-align: top;
+    position: relative;
+}
+
+.calendar td:hover {
+    background-color: #d89050;
+    cursor: pointer;
+}
+
+/* .description{
+    display: flex;
+    justify-content: center;
+}
+
+.description-cell {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    border: 1px solid black;
     padding: 10px;
-  }
+    z-index: 1000;
+} */
 
-  .calendar-header h2 {
-    font-size: 1.2rem;
-  }
-
-  .calendar th,
-  .calendar td {
-    padding: 8px;
-    font-size: 0.9rem;
-  }
+.event{
+    font-size: 13px;
 }
 
-@media (max-width: 480px) {
-  .calendar-container {
-    margin: 100px 5px 20px;
-  }
+.hidden{
+    display: none;
+}
 
-  .calendar-header {
-    flex-direction: column;
-    align-items: center;
-  }
+.reset-btn{
+    margin-top: 0px;
+    display: flex;
+    justify-content: center;
+}
 
-  .calendar-header button {
+.reset-btn button{
+    font-family: 'Pirata One', cursive;
+    background-color: #8B4513;
+    color: #FFD700;
+    border: 2px solid #FFD700;
+    font-family: 'Pirata One', cursive; 
+    text-transform: uppercase; 
+    cursor: pointer;
+    border-radius: 8px; 
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3); 
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    padding: 5px 10px;
+    font-size: 16px;
+}
+
+.reset-btn button:hover{
+    background-color: #FFD700; 
+    color: #8B4513; 
+}
+
+nav.nav-bar {
     width: 100%;
-  }
+    background: linear-gradient(rgba(0, 0, 0, 0.9) 0%, rgba(0,0,0,.6) 100%);
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for separation */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between; /* Space between span and links */
+    align-items: center; 
+}
 
-  .calendar th,
-  .calendar td {
-    font-size: 0.8rem;
-    padding: 6px;
-  }
+nav.nav-bar .left {
+    display: flex;
+    align-items: center; 
+    margin-left: 15px;
+}
+
+nav.nav-bar .right {
+    display: flex;
+    gap: 15px;
+    margin-right: 15px;
+}
+
+nav.nav-bar a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Font size for readability */
+}
+
+nav.nav-bar a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+nav.nav-bar span {
+    color: white;
+    font-size: 16px;
+}
+
+
+#test{
+    color: white;
+}
+
+.holiday {
+  background-color: #fdd835;
+  /* border-radius: 8px; */
+  cursor: pointer;
+}
+
+.holiday .event {
+  font-size: 0.7rem;
+  color: #222;
+  font-weight: bold;
+}
+
+.description-cell {
+  position: absolute;
+  top: -60px; /* adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #444;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: none; /* hidden by default */
+  z-index: 10;
+  width: max-content;
+  max-width: 200px;
+  text-align: center;
+}
+
+.description-cell.visible {
+  display: block;
 }
