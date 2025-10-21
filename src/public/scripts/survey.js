@@ -1,3 +1,19 @@
+const safeInput = document.getElementById('safe-dropdown');
+const noDiv = document.getElementById("no-option");
+
+
+safeInput.addEventListener('change', function() {
+    if (safeInput.value === 'no') {
+        noDiv.innerHTML = `
+            <label class="survey-label" for="unsafe">Why did you feel unsafe?</label> 
+            <input id="unsafe" name="unsafe_reason" type="text" required>
+        `;
+    } else {
+        noDiv.innerHTML = ''; // Clear the div if another option is selected
+    }
+});
+
+
 document.getElementById("post-survey-form").addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -8,10 +24,11 @@ document.getElementById("post-survey-form").addEventListener("submit", async (e)
     ceiling: document.querySelector('select[name="ceiling"]').value,
     more: document.getElementById("more").value,
     less: document.getElementById("less").value,
+    unsafe_reason: document.getElementById("unsafe") ? document.getElementById("unsafe").value : null
   };
 
   try {
-    const response = await fetch("/survey", {
+    const response = await fetch("/submit-survey", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),

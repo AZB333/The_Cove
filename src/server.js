@@ -245,21 +245,25 @@ app.post('/login', async (req, res) => {
 
 
 //survey//
-app.post("/survey", async (req, res) => {
-  const { rating, safe, music, ceiling, more, less } = req.body;
+app.post('/submit-survey', async (req, res) => {
+  const { rating, safe, music, ceiling, more, less, unsafe_reason } = req.body;
+  const username = req.session.user ? req.session.user.username : "Anonymous";
 
+  
   try {
     await pool.query(
-      "INSERT INTO survey_responses (rating, safe, music, ceiling, more, less) VALUES ($1, $2, $3, $4, $5, $6)",
-      [rating, safe, music, ceiling, more, less]
+      `INSERT INTO survey_responses (rating, safe, music, ceiling, more, less, unsafe_reason, username)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+      [rating, safe, music, ceiling, more, less, unsafe_reason || null, username]
     );
 
-    res.status(201).json({ message: "Survey submitted successfully" });
+    res.status(200).json({ message: "Survey submitted successfully" });
   } catch (err) {
-    console.error("Error saving survey:", err);
-    res.status(500).json({ message: "Error saving survey" });
+    console.error('Error saving survey:', err);
+    res.status(500).send('Error submitting survey.');
   }
 });
+
 
 //uploads
 app.post("/upload", upload.array("photos", 10), async (req, res) => {
