@@ -66,20 +66,37 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
      password: process.env.DB_PASSWORD,
    });
 
+
+  // Trust proxy - important for Render
+if (process.env.NODE_ENV === 'production') {
+  app.set('trust proxy', 1);
+}
 //user credentials session
+// app.use(
+//   session({
+//     secret: process.env.SESSION_SECRET || "supersecretkey",
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       secure: true, // set true if using HTTPS
+//       httpOnly: true, // helps prevent XSS
+//       maxAge: 1000 * 60 * 60, // 1 hour
+//     },
+//   })
+// );
 app.use(
   session({
     secret: process.env.SESSION_SECRET || "supersecretkey",
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true, // set true if using HTTPS
-      httpOnly: true, // helps prevent XSS
+      secure: process.env.NODE_ENV === 'production', // only use secure in production
+      httpOnly: true,
       maxAge: 1000 * 60 * 60, // 1 hour
+      sameSite: 'lax' // add this
     },
   })
 );
-
 
 app.use(express.urlencoded({ extended: true }));
 
