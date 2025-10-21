@@ -12,18 +12,24 @@ dotenv.config();
 const { Pool } = pkg;
 
 // Multer setup
+import fs from "fs";
+
+const uploadDir = path.join(__dirname, "uploads");
+
+// Create folder if missing
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "uploads/");
-  },
+  destination: (req, file, cb) => cb(null, uploadDir),
   filename: (req, file, cb) => {
-    const uniqueSuffix =
-      Date.now() + "-" + Math.round(Math.random() * 1e9);
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
     cb(null, uniqueSuffix + "-" + file.originalname);
   },
 });
-const upload = multer({ storage });
 
+const upload = multer({ storage });
 
 import session from "express-session";
 
@@ -257,7 +263,7 @@ app.post("/survey", async (req, res) => {
 
 //uploads
 app.post("/upload", upload.array("photos", 10), async (req, res) => {
-  const username = req.body.username || "Anonymous"; // or from session later
+  const username = req.session.user ? req.session.user.username : "Anonymous";
 
   try {
     const client = await pool.connect();
@@ -273,7 +279,9 @@ app.post("/upload", upload.array("photos", 10), async (req, res) => {
     }
 
     client.release();
-    res.status(200).send("Photos uploaded and saved to database!");
+    res.redirect("/photos");
+
+
   } catch (err) {
     console.error("Error saving to DB:", err);
     res.status(500).send("Upload failed");
@@ -281,18 +289,6 @@ app.post("/upload", upload.array("photos", 10), async (req, res) => {
 });
 
 
-
-// example route: add user
-app.post("/users", async (req, res) => {
-  const { username, email } = req.body;
-  try {
-    await pool.query("INSERT INTO users (username, email) VALUES ($1, $2)", [username, email]);
-    res.status(201).send("User added successfully");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Error adding user");
-  }
-});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

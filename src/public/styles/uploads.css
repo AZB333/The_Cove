@@ -1,0 +1,81 @@
+/* uploads.css */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+h2{
+    color: white !important;
+}
+
+
+/* BODY */
+body {
+  background-image: url('https://live.cdn.renderosity.com/gallery/items/1330775/images/681411/6ed3e2fb3e009d5db1d4756023122b0a_original.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Pirata One', cursive;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  color: black;
+}
+
+/* FORM STYLING */
+form {
+  background: url("https://media.istockphoto.com/id/155277575/photo/grunge-background.jpg?s=612x612&w=0&k=20&c=PHQ9PQ8hWN4NLsBH7i0HchQXuc5tRHjYBNsdDiEFmFQ=");
+  background-size: cover;
+  border: 8px solid transparent;
+  border-image: url('https://www.textures.com/system/gallery/photos/Wood/Tree%20Bark/Palm/61560/BarkPalm0018_1_350.jpg') 30 round;
+  padding: 15px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+}
+
+/* FILE INPUT & BUTTON */
+input[type="file"] {
+  display: block;
+  margin: 20px auto;
+  font-family: 'Pirata One', cursive;
+  font-size: 18px;
+}
+
+button {
+  background-color: #8B4513;
+  color: #FFD700;
+  border: 2px solid #FFD700;
+  padding: 8px 20px;
+  font-size: 18px;
+  font-family: 'Pirata One', cursive;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #FFD700;
+  color: #8B4513;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  form {
+    width: 90%;
+  }
+
+  nav.nav-bar span {
+    font-size: 18px;
+  }
+}
