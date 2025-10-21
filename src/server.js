@@ -1,9 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import pkg from "pg";
-
-
-
+import multer from "multer";
 import path from "path"; //for __dirname
 import { fileURLToPath } from "url";
 
@@ -12,6 +10,19 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config();
 const { Pool } = pkg;
+
+// Multer setup
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix =
+      Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, uniqueSuffix + "-" + file.originalname);
+  },
+});
+const upload = multer({ storage });
 
 
 import session from "express-session";
@@ -26,6 +37,10 @@ const app = express();
 app.use(express.json()); // allows JSON body parsing
 // app.use(express.static("public")); // serve static files from 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
+
+//uploads
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
 
 // connect to PostgreSQL
 const pool = new Pool({
@@ -59,6 +74,8 @@ app.use((req, res, next) => {
   res.locals.user = req.session.user || null;
   next();
 });
+
+
 
 
 ////////////gets/////////////
@@ -103,6 +120,27 @@ app.get("/testdb", async (req, res) => {
     res.status(500).send("Database connection failed");
   }
 });
+
+//uploads
+app.get("/uploads", requireLogin, (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "uploads.html"));
+});
+
+//photos
+app.get('/photos-data', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM photos ORDER BY uploaded_at DESC');
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error loading photos');
+  }
+});
+
+app.get('/photos', requireLogin, (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'photos.html'));
+});
+
 
 
 
@@ -214,6 +252,31 @@ app.post("/survey", async (req, res) => {
   } catch (err) {
     console.error("Error saving survey:", err);
     res.status(500).json({ message: "Error saving survey" });
+  }
+});
+
+//uploads
+app.post("/upload", upload.array("photos", 10), async (req, res) => {
+  const username = req.body.username || "Anonymous"; // or from session later
+
+  try {
+    const client = await pool.connect();
+
+    for (const file of req.files) {
+      const { filename, originalname, path: filepath } = file;
+
+      await client.query(
+        `INSERT INTO photos (username, filename, originalname, filepath)
+         VALUES ($1, $2, $3, $4)`,
+        [username, filename, originalname, filepath]
+      );
+    }
+
+    client.release();
+    res.status(200).send("Photos uploaded and saved to database!");
+  } catch (err) {
+    console.error("Error saving to DB:", err);
+    res.status(500).send("Upload failed");
   }
 });
 

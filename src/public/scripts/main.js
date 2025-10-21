@@ -14,10 +14,12 @@ document.addEventListener("DOMContentLoaded", async () => {
       const calendar = `<a href="/calendar">Event Calendar</a>`;
       const survey = `<a href="/survey">Take the Survey</a>`;
       const about = `<a href="/about">About Us</a>`;
+      const photos = `<a href="/photos">Photo Gallery</a>`;
+      const uploads = `<a href="/uploads">Uploads</a>`;
       const welcome = `<span class="left">Welcome, ${data.username}!</span>`;
       const logout = `<a href="#" id="logout-btn">Logout</a>`;
 
-      nav.innerHTML = `${home}${calendar}${survey}${about}${logout}`;
+      nav.innerHTML = `${home}${calendar}${survey}${about}${photos}${uploads}${logout}`;
       navLeft.innerHTML = `The Cove ${welcome}`;
 
       // Logout logic
@@ -34,6 +36,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         <a href="/login">Login</a>
         <a href="/calendar">Event Calendar</a>
         <a href="/survey">Take the Survey</a>
+        <a href="/photos">Photo Gallery</a>
+        <a href="/uploads">Uploads</a>
         <a href="/about">About Us</a>
       `;
     }

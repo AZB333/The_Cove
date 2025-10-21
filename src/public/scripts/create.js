@@ -21,7 +21,7 @@ document.getElementById("create-form").addEventListener("submit", async (e) => {
     }
 
     // alert("Account created!");
-    window.location.href = "/"; // redirect to home page
+    window.location.href = "/login"; // redirect to login page
   } catch (err) {
     console.error(err);
     alert("An error occurred while creating your account.");

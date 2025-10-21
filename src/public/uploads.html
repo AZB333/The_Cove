@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Cove</title>
+  <title>Upload Photos</title>
   <link rel="stylesheet" href="./styles/main.css" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
 </head>
-<body id="home-body">
+<body>
   <nav class="nav-bar">
     <span class="left" id="nav-left">The Cove</span>
 
@@ -26,10 +26,11 @@
     </div>
   </nav>
 
-  <main>
-    <h2 class="title">Yarrgg, Welcome to The Cove!</h2>
-  </main>
-
+  <h2>Upload your event photos!</h2>
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="photos" multiple required />
+    <button type="submit">Upload</button>
+  </form>
   <script src="./scripts/main.js"></script>
 </body>
 </html>
