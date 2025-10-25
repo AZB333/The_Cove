@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const about = `<a href="/about">About Us</a>`;
       const photos = `<a href="/photos">Photo Gallery</a>`;
       const uploads = `<a href="/uploads">Uploads</a>`;
-      const welcome = `<span class="left">Welcome, ${data.username}!</span>`;
+      const welcome = `<span class="left">  Welcome, ${data.username}!</span>`;
       const logout = `<a href="#" id="logout-btn">Logout</a>`;
 
       nav.innerHTML = `${home}${calendar}${survey}${about}${photos}${uploads}${logout}`;
